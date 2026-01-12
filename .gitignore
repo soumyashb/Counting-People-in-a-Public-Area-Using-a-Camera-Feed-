@@ -34,3 +34,8 @@ Thumbs.db
 runs/
 weights/
 *.pt
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3

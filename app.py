@@ -7,7 +7,12 @@ import tempfile
 from ultralytics import YOLO
 from deep_sort_realtime.deepsort_tracker import DeepSort
 
-st.set_page_config(page_title="Crowd Counting System", layout="wide")
+st.set_page_config(
+    page_title="Crowd Counting System",
+    layout="wide"
+)
+
+
 st.title("Crowd Counting System")
 
 def db():
