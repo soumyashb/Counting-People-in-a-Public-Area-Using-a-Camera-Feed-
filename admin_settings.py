@@ -3,6 +3,7 @@ Admin Settings System
 Manage alert rules, and system configuration
 """
 
+
 from flask import Flask, request, jsonify
 import sqlite3
 import json

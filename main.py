@@ -2,7 +2,6 @@ import cv2
 from ultralytics import YOLO
 from deep_sort_realtime.deepsort_tracker import DeepSort
 
-
 VIDEO_PATH = "test 2.mp4"
 GROUND_TRUTH_COUNT = 28       
 CONF_THRESHOLD = 0.5
