@@ -12,6 +12,81 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+
+/* ---- BASE APP ---- */
+.stApp {
+    background: #02040a;
+    overflow: hidden;
+}
+
+/* ---- NEON AURORA BLOBS ---- */
+.aurora {
+    pointer-events: none;  /* <<< added */
+    position: fixed;
+    inset: -50%;
+    background:
+        radial-gradient(45% 35% at 20% 30%, rgba(0,245,255,0.95), transparent 60%),
+        radial-gradient(40% 30% at 80% 40%, rgba(255,78,205,0.9), transparent 60%),
+        radial-gradient(35% 25% at 50% 80%, rgba(140,87,255,0.9), transparent 60%);
+    filter: blur(110px) saturate(210%);
+    animation: auroraFlow 9s cubic-bezier(0.4,0.0,0.2,1) infinite alternate;
+    z-index: 0;
+}
+
+/* second aurora layer for depth */
+.aurora.layer2 {
+    pointer-events: none;  /* <<< added */
+    animation-duration: 15s;
+    opacity: 0.75;
+    transform: rotate(180deg);
+}
+
+/* ---- BLACK HOLE VORTEX (NO CENTER) ---- */
+.vortex {
+    pointer-events: none;  /* <<< added */
+    position: fixed;
+    inset: -50%;
+    background: conic-gradient(
+        from 0deg,
+        rgba(0,245,255,0.45),
+        rgba(140,87,255,0.45),
+        rgba(255,78,205,0.45),
+        rgba(0,245,255,0.45)
+    );
+    filter: blur(140px) saturate(240%);
+    animation: vortexSpin 12s linear infinite;
+    z-index: 1;
+}
+
+/* ---- AURORA FLOW ---- */
+@keyframes auroraFlow {
+    0%   { transform: translate(-18%, -12%) scale(1); }
+    50%  { transform: translate(0%, 12%) scale(1.3); }
+    100% { transform: translate(22%, -18%) scale(1.45); }
+}
+
+@keyframes vortexSpin {
+    from { transform: rotate(0deg) scale(1.15); }
+    to   { transform: rotate(360deg) scale(1.4); }
+}
+
+/* ---- KEEP CONTENT ABOVE BACKGROUND ---- */
+section[data-testid="stMain"] {
+    position: relative;
+    z-index: 5;
+    color: white;
+}
+
+</style>
+
+<!-- BACKGROUND LAYERS -->
+<div class="aurora"></div>
+<div class="aurora layer2"></div>
+<div class="vortex"></div>
+""", unsafe_allow_html=True)
+
 
 
 st.title("Crowd Counting System")
